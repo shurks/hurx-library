@@ -90,7 +90,8 @@ export default class LoggerService extends Service {
      * Generates a styled error to throw in the console
      */
     public throw(error: string): Error {
-        return new Error(this.prefix('error') + error)
+        const message = this.perform('error', error)
+        return new Error(message || 'No error message specified.')
     }
 
     /**
@@ -98,7 +99,8 @@ export default class LoggerService extends Service {
      * @param type the type of log
      * @param data the arguments passed as data
      */
-    public perform(type: LoggerPrefixType, ...data: any) {
+    public perform(type: LoggerPrefixType, ...data: any): string|null {
+        let message: string|null = null
         switch (type) {
             case 'warning':
             case 'log':
@@ -108,23 +110,12 @@ export default class LoggerService extends Service {
                 break
             }
             case 'error': {
-                if (data && data instanceof Error) {
-                    if (data.message && data.message.length) {
-                        console.error(this.prefix(type) + data.message)
-                    }
-                    else {
-                        console.error(this.prefix(type), data)
-                    }
-                }
-                else if (typeof data === 'string') {
-                    console.error(this.prefix(type) + data)
-                }
-                else {
-                    console.error(this.prefix(type), data)
-                }
+                message = this.prefix(type) + this.styledStackTrace(data)
+                console.error(message)
                 break
             }
         }
+        return message
     }
 
         /**

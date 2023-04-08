@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { EncodingType, FileSystemMakeStatus, FileSystemRemoveStatus } from './file-system.types'
-import LoggerService from '../logger/logger'
+import LoggerService from '../logger/logger.service'
 import ProgressBarService from '../terminal/progress-bar/progress-bar.service'
 import { inject } from 'inversify'
 import { service } from '../../../engine/di/di.annotations'

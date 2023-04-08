@@ -21,7 +21,8 @@
 		],
 		"outDir": "./dist",
 		"declaration": true,
-		"declarationDir": "./dist"
+		"declarationDir": "./dist",
+		"declarationMap": true
 	},
 	"ts-node": {
 		"files": true

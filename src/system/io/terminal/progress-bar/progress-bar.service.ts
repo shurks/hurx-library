@@ -1,6 +1,6 @@
 import colors from 'ansi-colors'
 import progress from 'cli-progress'
-import LoggerService from '../../logger/logger'
+import LoggerService from '../../logger/logger.service'
 import { inject } from 'inversify'
 import { service } from '../../../../engine/di/di.annotations'
 import Service from '../../../../architecture/models/service'

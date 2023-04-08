@@ -1,0 +1,14 @@
+{
+	"name": "hurx-library",
+	"displayName": "Hurx Library",
+	"description": "The hurx programming language library.",
+	"version": "0.0.1",
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"inversify": "^6.0.1",
+		"inversify-binding-decorators": "^4.0.0",
+		"reflect-metadata": "^0.1.13"
+	}
+}

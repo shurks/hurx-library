@@ -99,7 +99,7 @@ export default class LoggerService extends Service {
      * @param type the type of log
      * @param data the arguments passed as data
      */
-    public perform(type: LoggerPrefixType, ...data: any): string|null {
+    public perform(type: LoggerPrefixType, ...data: any[]): string|null {
         let message: string|null = null
         switch (type) {
             case 'warning':
@@ -110,7 +110,8 @@ export default class LoggerService extends Service {
                 break
             }
             case 'error': {
-                message = this.prefix(type) + this.styledStackTrace(data)
+                const error = [...data][0]
+                message = this.prefix(type) + this.styledStackTrace(error)
                 console.error(message)
                 break
             }

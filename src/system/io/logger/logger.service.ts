@@ -125,7 +125,7 @@ export default class LoggerService extends Service {
         const stack = (new Error()).stack
         if (stack) {
             const captures = this.generateCapturesFromStack(stack)
-            const capture = captures.find((v) => !__filename.replace(/\\/g, '/').endsWith(v.path.replace(/\\/g, '/'))) || captures[0]
+            const capture = captures.find((v) => !v.path.endsWith('logger.service.ts'))
             if (capture) {
                 const value = `${chalks.type[type](` ${type.substring(0, 1)}${type.substring(1)} `)}${chalks.path[type](` ${capture.path.split('\\').join('/')} `)}${chalks.position[type](` ${capture.line}:${capture.character} `)} `
                 if (type === 'data') {

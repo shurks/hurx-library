@@ -23,7 +23,7 @@
 	"scripts": {
 		"compile": "cti create ./src && tsc && cti clean ./src",
 		"clean": "rimraf --glob ./dist",
-		"prepackage": "npm run clean && npm run compile && ts-node ./src/prepackage",
+		"prepackage": "npm run clean && npm run compile && ts-node ./src/prepackage --execute-prepackage",
 		"package": "cd ./dist && npm publish --access public"
 	},
 	"repository": {
